@@ -1,0 +1,10 @@
+---
+import BlogPreview from "../components/BlogPreview";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="My first blog with Astro">
+  <main>
+    <BlogPreview client:only="preact" />
+  </main>
+</Layout>
