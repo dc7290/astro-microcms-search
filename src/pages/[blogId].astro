@@ -4,7 +4,7 @@ import { getBlogs, getBlogDetail } from "../library/microcms";
 
 // 詳細記事ページの全パスを取得
 export async function getStaticPaths() {
-  const response = await getBlogs({ fields: ["id"] });
+  const response = await getBlogs({ fields: ["id"], limit: 1000 });
   return response.contents.map((content) => ({
     params: {
       blogId: content.id,

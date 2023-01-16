@@ -1,4 +1,5 @@
 ---
+import SearchButton from "../components/SearchButton";
 import Layout from "../layouts/Layout.astro";
 //microCMS呼び出し
 import { getBlogs } from "../library/microcms";
@@ -8,6 +9,7 @@ const response = await getBlogs({ fields: ["id", "title"] });
 
 <Layout title="My first blog with Astro">
   <main>
+    <SearchButton client:visible />
     <ul>
       {
         response.contents.map((content) => (
