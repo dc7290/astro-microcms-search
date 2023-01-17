@@ -7,7 +7,7 @@ const SearchButton = () => {
       ? new URLSearchParams(window.location.search).get("q") ?? ""
       : ""
   );
-  const handleInput: JSXInternal.GenericEventHandler<HTMLInputElement> = (
+  const handleChange: JSXInternal.GenericEventHandler<HTMLInputElement> = (
     event
   ) => {
     setValue((event.target as HTMLInputElement).value);
@@ -32,7 +32,7 @@ const SearchButton = () => {
         id="blog_search"
         type="search"
         value={value}
-        onInput={handleInput}
+        onChange={handleChange}
       />
       <button>検索</button>
     </form>

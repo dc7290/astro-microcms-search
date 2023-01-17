@@ -36,24 +36,24 @@ const BlogSearch = () => {
               </li>
             ))}
           </ul>
-          <nav>
-            <ul style={{ display: "flex", gap: "8px" }}>
-              {Array.from({
-                length: Math.ceil(
-                  data?.totalCount ? data.totalCount / LIMIT : 0
-                ),
-              }).map((_, i) => (
-                <li key={i} style={{ listStyle: "none" }}>
-                  <button
-                    onClick={() => setPage(i + 1)}
-                    disabled={page === i + 1}
-                  >
-                    {i + 1}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {data?.totalCount !== undefined && (
+            <nav>
+              <ul style={{ display: "flex", gap: "8px" }}>
+                {Array.from({
+                  length: Math.ceil(data.totalCount / LIMIT),
+                }).map((_, i) => (
+                  <li key={i} style={{ listStyle: "none" }}>
+                    <button
+                      onClick={() => setPage(i + 1)}
+                      disabled={page === i + 1}
+                    >
+                      {i + 1}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </>
       ) : (
         <div>検索結果はありません</div>
